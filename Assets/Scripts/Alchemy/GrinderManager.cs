@@ -11,15 +11,13 @@ public class GrinderManager : MonoBehaviour
 
     private Ingredient grinding;
     private bool canGrind;
-    private int GrindGrade;
+    private int grindGrade;
     private bool left;
 
     private void Start()
     {
         mouse = GameObject.FindObjectOfType<MouseManager>();
-        canGrind = true;
-        GrindGrade = 0;
-        left = true;
+        ResetGrinder();
     }
 
     private void SetGrinding(Ingredient ingred)
@@ -32,41 +30,53 @@ public class GrinderManager : MonoBehaviour
 
     private void Grind()
     {
-        Debug.Log("갈"); 
+        Debug.Log("갈");
 
-        GrindGrade++;
+        grindGrade++;
         left = !left;
 
-        if(GrindGrade == 5)
+        if(grindGrade == 5)
         {
             p = Instantiate(powder);
-            Ingredient inp = p.GetComponent<Ingredient>();
-            inp._type = grinding._type;
-            inp._name = grinding._name;
-            inp._description = grinding._description;
-            inp._powderColor = grinding._powderColor;
+            p.GetComponent<Ingredient>().SetData(grinding);
 
-            inp._grinded = true;
+            p.GetComponent<Ingredient>()._grinded = true;
 
-            p.GetComponent<SpriteRenderer>().color = inp._powderColor;
+            p.GetComponent<SpriteRenderer>().color = grinding._powderColor;
 
             grinding = null;
         }
     }
 
+    private void ResetGrinder()
+    {
+        grinding = null;
+        canGrind = true;
+        grindGrade = 0;
+        left = true;
+    }
+
     private void OnMouseDown()
     {
-        if(mouse.GetHoldingObject(false) != null && canGrind)
-            if(mouse.GetHoldingInfo()._type != IngredType.Liquid && mouse.GetHoldingInfo()._type != IngredType.etc)
-                SetGrinding(mouse.GetHoldingObject(true).GetComponent<Ingredient>());
+        GameObject holding = mouse.GetHoldingObject(false);
 
-        if (!mouse.GetHoldingObject(false) && GrindGrade == 5)
+        if (holding != null && canGrind)
+        {
+            Ingredient info = mouse.GetHoldingInfo();
+            if (info._type != IngredType.Liquid && info._type != IngredType.etc)
+                SetGrinding(mouse.GetHoldingObject(true).GetComponent<Ingredient>());
+        }
+
+        if (holding == null && grindGrade == 5)
+        {
             mouse.SetHoldingObject(p, false);
+            ResetGrinder();
+        }
     }
 
     private void OnMouseDrag()
     {
-        if(!canGrind && GrindGrade < 5)
+        if(!canGrind && grindGrade < 5)
         {
             float distance = Camera.main.ScreenToWorldPoint(Input.mousePosition).x - transform.position.x;
 

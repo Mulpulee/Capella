@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7196aaac78f2a4e488817a3bdc6932f4, type: 3}
+  m_Name: PreloadSettings
+  m_EditorClassIdentifier: 
+  SceneLoadFakeDelay: 1
+  MainFont: {fileID: 12800000, guid: 0c6b4966557137242a5673d7f5bd721f, type: 3}
+  SoundManagerPoolSize: 100
+  ButtonMouseOverSound: {fileID: 0}
+  ButtonClickSound: {fileID: 0}
+  ClientID: 255441676404-3hb173jjej1jm2nenu2p4nvr1utbmgib.apps.googleusercontent.com
+  ClientSecret: VikDUCVIvoQoBIKXVqrTnTz5
+  SpreadSheetID: 
+  Sheets: []
+  DefaultSprite: {fileID: 0}
