@@ -19,6 +19,7 @@ MonoBehaviour:
   ButtonClickSound: {fileID: 0}
   ClientID: 255441676404-3hb173jjej1jm2nenu2p4nvr1utbmgib.apps.googleusercontent.com
   ClientSecret: VikDUCVIvoQoBIKXVqrTnTz5
-  SpreadSheetID: 
-  Sheets: []
+  SpreadSheetID: 1PUFujZLBeg24rC1JCxF8r6y6KhWhKfJZN9KMY8_rKR4
+  Sheets:
+  - Menu
   DefaultSprite: {fileID: 0}
