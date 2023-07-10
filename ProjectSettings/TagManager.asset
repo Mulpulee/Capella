@@ -3,7 +3,15 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - HKR
+  - STP
+  - FTL
+  - GHM
+  - GFM
+  - KS
+  - MS
+  - SS
   layers:
   - Default
   - TransparentFX
