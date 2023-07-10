@@ -1,1 +1,8 @@
-{}
+{
+    "money": 10000,
+    "day": 1,
+    "recipe": [],
+    "customer": [],
+    "bgmVolume": 0.0,
+    "sfxVolume": 0.0
+}
