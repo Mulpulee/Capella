@@ -4,5 +4,20 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Seram/VolumeSaveScene.unity
+    guid: 0ef902e417eab5b45b69dc86a9fd919b
+  - enabled: 1
+    path: Assets/Seram/SeramScene.unity
+    guid: c4450c51870f4504eb71c5e877d41b90
+  - enabled: 1
+    path: Assets/Seram/PrintResult.unity
+    guid: dbee6528120ba3e4695298083206af33
+  - enabled: 1
+    path: Assets/Seram/MoveScene.unity
+    guid: 903874de2b096d24d93cc6c6868aa88a
+  - enabled: 1
+    path: Assets/Seram/GameScene.unity
+    guid: ea1a470935076ce489cdc4b8395b8911
   m_configObjects: {}
