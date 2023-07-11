@@ -41,20 +41,19 @@ public class Inventory : MonoBehaviour
         if (GetEmptySlot() == -1) return;
 
         int emptySlot = GetEmptySlot();
-            
+
+        SpriteRenderer drink;
         if (isGas)
         {
             product._isGas = true;
-            slots[emptySlot].transform.GetChild(1).GetComponent<SpriteRenderer>().color = product._Color;
+            drink = slots[emptySlot].transform.GetChild(1).GetComponent<SpriteRenderer>();
         }
         else
         {
-            Transform drink = slots[emptySlot].transform.GetChild(0);
-            drink.GetComponent<SpriteRenderer>().color = product._Color;
-
-            drink.GetChild((product._id - 10000) / 10).GetComponent<SpriteRenderer>().color = Color.white;
-            drink.GetChild(product._id % 10).GetComponent<SpriteRenderer>().color = Color.white;
+            drink = slots[emptySlot].transform.GetChild(0).GetComponent<SpriteRenderer>();
         }
+        drink.sprite = product._sprite;
+        drink.color = Color.white;
         products[emptySlot] = product;
         slots[emptySlot].GetComponent<Product>().SetData(product);
 

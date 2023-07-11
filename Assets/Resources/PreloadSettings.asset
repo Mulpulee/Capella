@@ -22,4 +22,6 @@ MonoBehaviour:
   SpreadSheetID: 1PUFujZLBeg24rC1JCxF8r6y6KhWhKfJZN9KMY8_rKR4
   Sheets:
   - Menu
+  - OrderScript
+  - IngredientTable
   DefaultSprite: {fileID: 0}

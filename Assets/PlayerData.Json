@@ -1,8 +1,9 @@
 {
-    "money": 4324234,
-    "day": 3,
-    "recipe": [],
-    "customer": [],
+    "money": 10000,
+    "day": 1,
+    "recipe": [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+    "customer": [0, 0, 0, 0, 0],
+    "mstVolume": 0.0,
     "bgmVolume": 0.0,
     "sfxVolume": 0.0
 }

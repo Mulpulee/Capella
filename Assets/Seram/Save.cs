@@ -30,6 +30,7 @@ public class Playerdata
     public int day;
     public int[] recipe;
     public int[] customer;
+    public float mstVolume;
     public float bgmVolume;
     public float sfxVolume;
 }

@@ -2,8 +2,6 @@ using Automation.DataTable;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
-using UnityEngine.WSA;
 
 public class BoilerManager : MonoBehaviour
 {
@@ -15,6 +13,8 @@ public class BoilerManager : MonoBehaviour
     private Inventory inventory;
 
     private GameObject p;
+    private Dictionary<string, Sprite> drinkSprites;
+    private Dictionary<string, Sprite> gasSprites;
     private int stackCount = 0;
     private int powderCode = 0;
 
@@ -22,6 +22,18 @@ public class BoilerManager : MonoBehaviour
     {
         mouse = GameObject.FindObjectOfType<MouseManager>();
         inventory = GameObject.FindObjectOfType<Inventory>();
+
+        drinkSprites = new Dictionary<string, Sprite>();
+        gasSprites = new Dictionary<string, Sprite>();
+        LoadSprites();
+    }
+
+    private void LoadSprites()
+    {
+        Sprite[] sprites = Resources.LoadAll<Sprite>("Arts/Drinks");
+        foreach (Sprite sprite in sprites) drinkSprites.Add(sprite.name, sprite);
+        sprites = Resources.LoadAll<Sprite>("Arts/Gases");
+        foreach (Sprite sprite in sprites) gasSprites.Add(sprite.name, sprite);
     }
 
     private void AddPowder(Ingredient input)
@@ -31,7 +43,6 @@ public class BoilerManager : MonoBehaviour
         mouse.RemoveHolding();
 
         Transform powder = transform.GetChild(stackCount++);
-        powder.GetComponent<SpriteRenderer>().color = input._powderColor;
 
         if (powderCode > input._id) powderCode += input._id * 10;
         else
@@ -63,11 +74,10 @@ public class BoilerManager : MonoBehaviour
         pp._id = menu.ID;
         pp._name = menu.Name;
         pp._description = menu.Description;
-        pp._Color = new Color(menu.GasColor_r, menu.GasColor_g, menu.GasColor_b);
+        pp._sprite = drinkSprites[powderCode.ToString()];
         pp._isGas = false;
 
-        p.transform.GetChild(powderCode / 10).GetComponent<SpriteRenderer>().color = Color.white;
-        p.transform.GetChild(powderCode % 10).GetComponent<SpriteRenderer>().color = Color.white;
+        p.GetComponent<SpriteRenderer>().sprite = pp._sprite;
 
         ResetBoiler();
 
@@ -78,8 +88,6 @@ public class BoilerManager : MonoBehaviour
     {
         stackCount = 0;
         powderCode = 0;
-        transform.GetChild(0).GetComponent<SpriteRenderer>().color = Color.clear;
-        transform.GetChild(1).GetComponent<SpriteRenderer>().color = Color.clear;
     }
 
     private void OnMouseDown()
@@ -95,6 +103,7 @@ public class BoilerManager : MonoBehaviour
             {
                 if (info._type == IngredType.etc)
                 {
+                    p.GetComponent<Product>()._sprite = gasSprites[powderCode.ToString()];
                     inventory.SetSlot(p.GetComponent<Product>(), true);
                     Destroy(p);
                     mouse.RemoveHolding();

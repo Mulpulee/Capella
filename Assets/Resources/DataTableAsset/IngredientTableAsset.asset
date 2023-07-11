@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1345f5d0f35c2e146a7ae80eb2aa1d97, type: 3}
+  m_Name: IngredientTableAsset
+  m_EditorClassIdentifier: 
+  Table:
+    _data:
+      datas:
+      - Key: 30001
+        Value:
+          ID: 30001
+          Name: "\uD76C\uD0A4\uCF54\uBFCC\uB9AC"
+          Taste: "\uC2E0\uB9DB"
+          Description: "\uD76C\uD0A4\uCF54\uC758 \uBFCC\uB9AC. \uD76C\uD0A4\uCF54\uB294
+            \uBA39\uC73C\uBA74 \uD658\uAC01, \uD658\uCCAD\uC744 \uBCF4\uB294 \uC99D\uC0C1\uC774
+            \uB098\uB294 \uB3C5\uCD08\uC774\uC9C0\uB9CC \uBFCC\uB9AC\uB294 \uBA39\uC744
+            \uC218 \uC788\uB2E4."
+          PowderColor_r: 1
+          PowdeColor_g: 1
+          PowdeColor_b: 1
+      - Key: 30002
+        Value:
+          ID: 30002
+          Name: "\uC0C1\uC5B4\uB208\uBB3C\uCD08"
+          Taste: "\uC9E0\uB9DB"
+          Description: "\uB208\uBB3C \uBAA8\uC591\uC5D0 \uC0C1\uC5B4 \uB208\uBB3C\uCC98\uB7FC
+            \uC9E0\uB9DB\uC774 \uB09C\uB2E4 \uD574\uC11C \uBD99\uC740 \uC774\uB984\uC774\uB2E4."
+          PowderColor_r: 1
+          PowdeColor_g: 1
+          PowdeColor_b: 1
+      - Key: 30003
+        Value:
+          ID: 30003
+          Name: "\uD37C\uD0A4\uB098\uBB34 \uAC00\uC9C0"
+          Taste: "\uC4F4\uB9DB"
+          Description: "\uC368\uC11C \uBA39\uC9C0 \uBABB\uD558\uB294 \uC791\uC740
+            \uC5F4\uB9E4\uB97C \uB9FA\uB294 \uD37C\uD0A4\uB098\uBB34\uC758 \uAC00\uC9C0.
+            \uAC00\uC9C0\uBD80\uBD84\uC740 \uC2DD\uC6A9\uC774\uB2E4"
+          PowderColor_r: 1
+          PowdeColor_g: 1
+          PowdeColor_b: 1
+      - Key: 30004
+        Value:
+          ID: 30004
+          Name: "\uC5FC\uC18C\uAD81\uB315\uC774 \uBC84\uC12F"
+          Taste: "\uAFB8\uB9B0\uB0B4\uB9DB"
+          Description: "\uC5FC\uC18C \uAD81\uB315\uC774\uB97C \uB2EE\uC558\uB2E4
+            \uD574\uC11C \uBD99\uC740 \uC774\uB984. \uC774 \uC7AC\uB8CC\uB97C \uC0AC\uC6A9\uD55C
+            \uC74C\uC2DD\uC740 \uBABD\uC2E4\uBABD\uC2E4\uD574\uC9C4\uB2E4. "
+          PowderColor_r: 1
+          PowdeColor_g: 1
+          PowdeColor_b: 1
+      - Key: 30005
+        Value:
+          ID: 30005
+          Name: "\uD669\uAE08\uB354\uB4EC\uC774 \uBC84\uC12F"
+          Taste: "\uBC18\uC9DD\uBC18\uC9DD\uD55C \uB9DB"
+          Description: "\uD669\uAE08\uC0C9 \uB354\uB4EC\uC774 \uAC19\uB2E4 \uD558\uC5EC
+            \uBD99\uC740 \uC774\uB984. \uC5B4\uB450\uC6B4\uACF3\uC5D0\uC11C \uBC1D\uC740
+            \uBE5B\uC744 \uB0B4\uB294 \uD2B9\uC9D5\uC774 \uC788\uB2E4."
+          PowderColor_r: 1
+          PowdeColor_g: 1
+          PowdeColor_b: 1
+      - Key: 30006
+        Value:
+          ID: 30006
+          Name: "\uAE40\uCE58\uAC15\uC625"
+          Taste: "\uD654\uB048\uD55C \uB9DB"
+          Description: "\uB3D9\uC591\uC758 \uAE40\uCE58\uB77C\uB294 \uC74C\uC2DD\uACFC
+            \uBE44\uC2B7\uD55C \uC0DD\uAE40\uC0C8\uC640 \uB9DB\uC744 \uAC00\uC84C\uB2E4
+            \uD574\uC11C \uBD99\uC740 \uC774\uB984\uC774\uB2E4"
+          PowderColor_r: 1
+          PowdeColor_g: 1
+          PowdeColor_b: 1
+      - Key: 30007
+        Value:
+          ID: 30007
+          Name: "\uBBFC\uD2B8 \uC885\uC720\uC11D"
+          Taste: "\uC2DC\uC6D0\uD55C \uB9DB"
+          Description: "\uBBFC\uD2B8\uAC00 \uC790\uB77C\uB294 \uB3D9\uAD74\uC758
+            \uC885\uC720\uC11D. \uBBFC\uD2B8\uCC98\uB7FC \uC2DC\uC6D0\uD55C \uB9DB\uC774
+            \uB09C\uB2E4."
+          PowderColor_r: 1
+          PowdeColor_g: 1
+          PowdeColor_b: 1
+      - Key: 30008
+        Value:
+          ID: 30008
+          Name: "\uC124\uD0D5\uC11D\uC601"
+          Taste: "\uB2E8\uB9DB"
+          Description: "\uAC70\uB300\uD55C \uC11D\uC601 \uB369\uC5B4\uB9AC\uC5D0\uC11C
+            \uC124\uD0D5\uC774 \uD568\uC720\uB41C \uBD80\uBD84\uC744 \uB5BC\uC5B4\uB0B8
+            \uC791\uC740 \uC11D\uC601 \uC870\uAC01"
+          PowderColor_r: 1
+          PowdeColor_g: 1
+          PowdeColor_b: 1

@@ -8,7 +8,7 @@ public class Product : MonoBehaviour
     public string _name;
     public string _description;
 
-    public Color _Color;
+    public Sprite _sprite;
 
     public bool _isGas;
 
@@ -17,7 +17,7 @@ public class Product : MonoBehaviour
         _id = product._id;
         _name = product._name;
         _description = product._description;
-        _Color = product._Color;
+        _sprite = product._sprite;
         _isGas = product._isGas;
     }
 }

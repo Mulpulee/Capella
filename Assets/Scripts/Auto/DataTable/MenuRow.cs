@@ -21,11 +21,5 @@ namespace Automation.DataTable {
         public int Ingredient1;
         
         public int Ingredient2;
-        
-        public float GasColor_r;
-        
-        public float GasColor_g;
-        
-        public float GasColor_b;
     }
 }

@@ -65,7 +65,7 @@ public class GrinderManager : MonoBehaviour
             Ingredient info = mouse.GetHoldingInfo();
             if (info == null) return;
 
-            if (info._type != IngredType.Liquid && info._type != IngredType.etc)
+            if (info._type != IngredType.Liquid && info._type != IngredType.etc && !info._grinded)
                 SetGrinding(mouse.GetHoldingObject(true).GetComponent<Ingredient>());
         }
 

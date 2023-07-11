@@ -14,5 +14,9 @@ namespace Automation.DataTable {
     public class AutoDataTable {
         
         public const string Menu = "Menu";
+        
+        public const string OrderScript = "OrderScript";
+        
+        public const string IngredientTable = "IngredientTable";
     }
 }
