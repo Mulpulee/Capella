@@ -22,7 +22,7 @@ public class Soundmanager : MonoBehaviour
     public void SetMasterVolume(float volume)
     {
         musicsource.volume = volume * masterslider.value;
-        btnsource.volume = volume * masterslider.value;
+        btnsource.volume = volume * masterslider.value;  
     }
 
     public void OnSfx()
