@@ -7,13 +7,15 @@ public class MouseManager : MonoBehaviour
 {
     private GameObject holding;
 
-    public void SetHoldingObject(GameObject go, bool clone = true)
+    public void SetHoldingObject(GameObject go, bool clone = true, Sprite sprite = null)
     {
         if (holding == null)
         {
             GameObject g;
             if (clone) g = Instantiate(go);
             else g = go;
+
+            if (sprite != null) g.GetComponent<SpriteRenderer>().sprite = sprite;
 
             Destroy(g.GetComponent<BoxCollider2D>());
             Destroy(g.GetComponent<IngredientController>());

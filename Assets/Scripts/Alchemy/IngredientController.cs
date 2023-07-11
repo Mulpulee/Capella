@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class IngredientController : MonoBehaviour
 {
+    [SerializeField] private Sprite ingred;
+
     private MouseManager mouse;
 
     private void Start()
@@ -13,7 +15,7 @@ public class IngredientController : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (mouse.GetHoldingObject(false) == null) mouse.SetHoldingObject(transform.gameObject);
+        if (mouse.GetHoldingObject(false) == null) mouse.SetHoldingObject(transform.gameObject, true, ingred);
         else
         {
             if (mouse.GetHoldingObject(false).CompareTag(transform.tag)) mouse.RemoveHolding();

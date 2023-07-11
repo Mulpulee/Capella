@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Reflection;
 using UnityEngine;
 
 public class Inventory : MonoBehaviour
@@ -12,10 +11,12 @@ public class Inventory : MonoBehaviour
     private Product[] products;
 
     private MouseManager mouse;
+    private BoxCollider2D col;
 
     private void Start()
     {
         mouse = GameObject.FindObjectOfType<MouseManager>();
+        col = GetComponent<BoxCollider2D>(); col.enabled = false;
 
         slots = new GameObject[3];
         slots[0] = transform.GetChild(0).gameObject;
@@ -90,6 +91,7 @@ public class Inventory : MonoBehaviour
         {
             mouse.SetHoldingObject(slot);
             slot.SetActive(false);
+            col.enabled = true;
         }
     }
 
@@ -103,6 +105,7 @@ public class Inventory : MonoBehaviour
             {
                 mouse.RemoveHolding();
                 slots[i].SetActive(true);
+                col.enabled = false;
                 return;
             }
         }

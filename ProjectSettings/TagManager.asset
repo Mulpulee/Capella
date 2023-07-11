@@ -12,6 +12,8 @@ TagManager:
   - KS
   - MS
   - SS
+  - Water
+  - Oil
   layers:
   - Default
   - TransparentFX
@@ -52,6 +54,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: New Layer 2
+  - name: UI
     uniqueID: 1492124741
     locked: 0

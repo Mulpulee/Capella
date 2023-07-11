@@ -38,11 +38,12 @@ public class BoilerManager : MonoBehaviour
 
     private void AddPowder(Ingredient input)
     {
+        if (!input._grinded) return;
+
         if (stackCount == 1 && powderCode == input._id) return;
 
         mouse.RemoveHolding();
-
-        Transform powder = transform.GetChild(stackCount++);
+        stackCount++;
 
         if (powderCode > input._id) powderCode += input._id * 10;
         else
@@ -79,8 +80,6 @@ public class BoilerManager : MonoBehaviour
 
         p.GetComponent<SpriteRenderer>().sprite = pp._sprite;
 
-        ResetBoiler();
-
         return;
     }
 
@@ -107,6 +106,8 @@ public class BoilerManager : MonoBehaviour
                     inventory.SetSlot(p.GetComponent<Product>(), true);
                     Destroy(p);
                     mouse.RemoveHolding();
+
+                    ResetBoiler();
                 }
                 return;
             }
@@ -120,6 +121,8 @@ public class BoilerManager : MonoBehaviour
 
             inventory.SetSlot(p.GetComponent<Product>());
             Destroy(p);
+
+            ResetBoiler();
         }
     }
 }

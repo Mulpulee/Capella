@@ -30,8 +30,6 @@ public class GrinderManager : MonoBehaviour
 
     private void Grind()
     {
-        Debug.Log("갈");
-
         grindGrade++;
         left = !left;
 
