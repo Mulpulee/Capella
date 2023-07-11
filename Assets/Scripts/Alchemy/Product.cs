@@ -8,9 +8,7 @@ public class Product : MonoBehaviour
     public string _name;
     public string _description;
 
-    public int[] _ingreds;
-
-    public Color _gasColor;
+    public Color _Color;
 
     public bool _isGas;
 
@@ -19,8 +17,7 @@ public class Product : MonoBehaviour
         _id = product._id;
         _name = product._name;
         _description = product._description;
-        _ingreds = product._ingreds;
-        _gasColor = product._gasColor;
+        _Color = product._Color;
         _isGas = product._isGas;
     }
 }

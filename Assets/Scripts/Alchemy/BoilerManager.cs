@@ -12,6 +12,8 @@ public class BoilerManager : MonoBehaviour
     [SerializeField] private GameObject product;
 
     private MouseManager mouse;
+    private Inventory inventory;
+
     private GameObject p;
     private int stackCount = 0;
     private int powderCode = 0;
@@ -19,17 +21,17 @@ public class BoilerManager : MonoBehaviour
     private void Start()
     {
         mouse = GameObject.FindObjectOfType<MouseManager>();
+        inventory = GameObject.FindObjectOfType<Inventory>();
     }
 
     private void AddPowder(Ingredient input)
     {
-        if (stackCount == 1 && transform.GetChild(0).GetComponent<Ingredient>()._id == input._id) return;
+        if (stackCount == 1 && powderCode == input._id) return;
 
         mouse.RemoveHolding();
 
         Transform powder = transform.GetChild(stackCount++);
         powder.GetComponent<SpriteRenderer>().color = input._powderColor;
-        powder.GetComponent<Ingredient>().SetData(input);
 
         if (powderCode > input._id) powderCode += input._id * 10;
         else
@@ -41,24 +43,31 @@ public class BoilerManager : MonoBehaviour
 
     private void Drip()
     {
-        if (stackCount == 0) oil.enabled = true;
-        else water.enabled = true;
-
         mouse.RemoveHolding();
 
         MenuRow menu;
-        if (stackCount == 0) menu = DataSystem<MenuRow>.GetRow(10088);
-        else menu = DataSystem<MenuRow>.GetRow(10000 + powderCode);
+        if (stackCount == 0)
+        {
+            menu = DataSystem<MenuRow>.GetRow(10088);
+            oil.enabled = true;
+            powderCode = 88;
+        }
+        else 
+        {
+            menu = DataSystem<MenuRow>.GetRow(10000 + powderCode);
+            water.enabled = true;
+        }
 
         p = Instantiate(product);
         Product pp = p.GetComponent<Product>();
+        pp._id = menu.ID;
         pp._name = menu.Name;
         pp._description = menu.Description;
-        pp._ingreds = new int[2];
-        pp._ingreds[0] = menu.Ingredient1;
-        pp._ingreds[1] = menu.Ingredient2;
-        pp._gasColor = new Color(menu.GasColor_r, menu.GasColor_g, menu.GasColor_b);
+        pp._Color = new Color(menu.GasColor_r, menu.GasColor_g, menu.GasColor_b);
         pp._isGas = false;
+
+        p.transform.GetChild(powderCode / 10).GetComponent<SpriteRenderer>().color = Color.white;
+        p.transform.GetChild(powderCode % 10).GetComponent<SpriteRenderer>().color = Color.white;
 
         ResetBoiler();
 
@@ -80,11 +89,28 @@ public class BoilerManager : MonoBehaviour
         if (holding != null)
         {
             Ingredient info = mouse.GetHoldingInfo();
+            if (info == null) return;
 
+            if (p != null)
+            {
+                if (info._type == IngredType.etc)
+                {
+                    inventory.SetSlot(p.GetComponent<Product>(), true);
+                    Destroy(p);
+                    mouse.RemoveHolding();
+                }
+                return;
+            }
             if (info._type != IngredType.Liquid && info._type != IngredType.etc && stackCount < 2) AddPowder(info);
             else if (info._type == IngredType.Liquid && info._id == 0 && stackCount == 2) Drip();
             else if (info._type == IngredType.Liquid && info._id == 8 && stackCount == 0) Drip();
         }
+        else if (p != null)
+        {
+            if (inventory.GetEmptySlot() == -1) return;
 
+            inventory.SetSlot(p.GetComponent<Product>());
+            Destroy(p);
+        }
     }
 }

@@ -63,6 +63,8 @@ public class GrinderManager : MonoBehaviour
         if (holding != null && canGrind)
         {
             Ingredient info = mouse.GetHoldingInfo();
+            if (info == null) return;
+
             if (info._type != IngredType.Liquid && info._type != IngredType.etc)
                 SetGrinding(mouse.GetHoldingObject(true).GetComponent<Ingredient>());
         }

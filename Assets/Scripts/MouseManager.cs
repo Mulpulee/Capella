@@ -17,7 +17,7 @@ public class MouseManager : MonoBehaviour
 
             Destroy(g.GetComponent<BoxCollider2D>());
             Destroy(g.GetComponent<IngredientController>());
-            g.GetComponent<SpriteRenderer>().sortingOrder = 100;
+            if (g.GetComponent<SpriteRenderer>()) g.GetComponent<SpriteRenderer>().sortingOrder = 100;
             holding = g;
             
 
@@ -38,7 +38,7 @@ public class MouseManager : MonoBehaviour
         return;
     }
 
-    public GameObject GetHoldingObject(bool destroy)
+    public GameObject GetHoldingObject(bool destroy = false)
     {
         if (holding == null) return null;
 
@@ -51,6 +51,13 @@ public class MouseManager : MonoBehaviour
         if (holding == null) return null;
 
         return holding.GetComponent<Ingredient>();
+    }
+
+    public Product GetHoldingProduct()
+    {
+        if (holding == null) return null;
+
+        return holding.GetComponent<Product>();
     }
 
     private void Update()
