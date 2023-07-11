@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-using System.Globalization;
 
 [System.Serializable]
 public class Save : MonoBehaviour
@@ -10,14 +9,14 @@ public class Save : MonoBehaviour
     public Playerdata playerData;
 
     [ContextMenu("To Json Data")]
-    void SavePlayerDataToJson()
+    public void SavePlayerDataToJson()
     {
         string jsonData = JsonUtility.ToJson(playerData,true);
         string path = Path.Combine(Application.dataPath, "PlayerData.json");
         File.WriteAllText(path, jsonData);
     }
     [ContextMenu("from Json Data")]
-    void LordPlayerDataFromJson()
+    public void LoadPlayerDataFromJson()
     {
         string path = Path.Combine(Application.dataPath, "playerData.json");
         string jsonData = File.ReadAllText(path);
