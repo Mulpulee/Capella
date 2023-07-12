@@ -18,9 +18,9 @@ MonoBehaviour:
       - Key: 20001
         Value:
           ID: 20001
-          Name: Mob
-          OrderScript_front: "\uC74C\uB8CC\uB294...."
-          OrderScript_back: "\uC73C\uB85C \uC8FC\uC138\uC694"
+          Name: "\uC190\uB2D8"
+          OrderScript_front: "\uC74C\uB8CC\uB294.... "
+          OrderScript_back: "\uB85C \uC8FC\uC138\uC694"
           Ment1: "\uC548\uB155\uD558\uC138\uC694"
           Ment2: "\uC81C\uAC00 \uC9C0\uAE08 \uAE09\uD574\uC11C \uADF8\uB7F0\uB370
             \uC870\uAE08 \uBE68\uB9AC \uD574\uC8FC\uC2E4 \uC218 \uC788\uB098\uC694?"
@@ -33,8 +33,8 @@ MonoBehaviour:
         Value:
           ID: 20010
           Name: "\uC18C\uD0C0"
-          OrderScript_front: "\uC544\uC800\uC528 \uC800\uB294"
-          OrderScript_back: "\uC8FC\uC138\uC694!!!"
+          OrderScript_front: "\uC544\uC800\uC528 \uC800\uB294 "
+          OrderScript_back: " \uC8FC\uC138\uC694!!!"
           Ment1: "\uC544\uC800\uC528 \uC548\uB155\uD558\uC138\uC694!!!"
           Ment2: "\uC544\uC800\uC528 \uC624\uB298 \uC81C\uAC00 \uBB50 \uCC3E\uC558\uB294\uC9C0
             \uBCF4\uC2E4\uB798\uC694???"
@@ -48,8 +48,8 @@ MonoBehaviour:
         Value:
           ID: 20011
           Name: "\uBCA0\uB85C\uB2C8\uCE74 LEE"
-          OrderScript_front: "\uC804"
-          OrderScript_back: "\uC73C\uB85C \uBD80\uD0C1\uB4DC\uB9BD\uB2C8\uB2E4."
+          OrderScript_front: "\uC804 "
+          OrderScript_back: "\uB85C \uBD80\uD0C1\uB4DC\uB9BD\uB2C8\uB2E4."
           Ment1: "\uC548\uB155\uD558\uC138\uC694?"
           Ment2: "\uB0A0\uC528\uAC00 \uCC38 \uC88B\uAD70\uC694.  \uC800\uAC78 \uB0A0\uC528\uB77C\uACE0
             \uBD80\uB974\uAE34 \uC5B4\uB835\uC9C0\uB9CC \uB9D0\uC774\uC8E0."
@@ -63,7 +63,7 @@ MonoBehaviour:
         Value:
           ID: 20012
           Name: "\uD074\uB85C\uD0A4 \uC544\uCF00\uC774\uB4DC"
-          OrderScript_front: ...
+          OrderScript_front: '... '
           OrderScript_back: .
           Ment1: "\uC57C"
           Ment2: "\uB108"
@@ -77,8 +77,8 @@ MonoBehaviour:
         Value:
           ID: 20013
           Name: "\uB808\uC774\uCCBC \uB9E4\uB4E4\uB9AC & \uC544\uC774\uC0E4 \uB9E4\uB4E4\uB9AC"
-          OrderScript_front: "\uC800\uD76C\uB294"
-          OrderScript_back: "\uC73C\uB85C..."
+          OrderScript_front: "\uC800\uD76C\uB294 "
+          OrderScript_back: "\uB85C..."
           Ment1: "\uC774\uB9AC\uC624\uB108\uB77C!!! / \uB808\uC774..!"
           Ment2: "\uB0B4\uAC00 \uBA4B\uC9C0\uAC8C \uC5F0\uC8FC\uB97C....!! / \uBBFC\uD3D0\uC57C
             \uADF8\uAC70..."
@@ -92,8 +92,8 @@ MonoBehaviour:
         Value:
           ID: 20014
           Name: "\uD074\uB85C\uC774 \uC544\uC580"
-          OrderScript_front: "\uC624\uB298\uC740"
-          OrderScript_back: "\uC73C\uB85C \uC8FC\uC154\uC694"
+          OrderScript_front: "\uC624\uB298\uC740 "
+          OrderScript_back: "\uB85C \uC8FC\uC154\uC694"
           Ment1: "\uC624\uB298 \uC778\uC870 \uD0DC\uC591\uC774 \uCC38 \uC544\uB984\uB2F5\uB124\uC694
             \uADF8\uB807\uC8E0?"
           Ment2: "\uD640\uD640..\uC800\uD76C \uCC30\uC2A4 \uADC0\uC5FD\uC9C0\uC694?"

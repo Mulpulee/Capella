@@ -18,6 +18,7 @@ MonoBehaviour:
       - Key: 10001
         Value:
           ID: 10001
+          Index: 0
           Name: "\uBC14\uB2E4 \uC5D0\uC774\uB4DC"
           Description: "\uBC14\uB2E4\uB9DB\uC758 \uB9E4\uC6B0 \uB3C5\uD2B9\uD55C
             \uB9DB. \uB9DB\uB3C4 \uADF8\uB807\uACE0 \uC74C\uB8CC\uC758 \uC0DD\uAE40\uC0C8\uB3C4
@@ -27,6 +28,7 @@ MonoBehaviour:
       - Key: 10002
         Value:
           ID: 10002
+          Index: 1
           Name: "\uC2DD\uBB3C \uD55C\uC30D \uC5D0\uC774\uB4DC"
           Description: "\uC2DC\uC911\uC5D0 \uD30C\uB294 \uCE74\uD398\uC778 \uC74C\uB8CC\uC640
             \uB9E4\uC6B0 \uD761\uC0AC\uD55C \uB9DB. "
@@ -35,6 +37,7 @@ MonoBehaviour:
       - Key: 10003
         Value:
           ID: 10003
+          Index: 2
           Name: "\uC19C\uC0AC\uD0D5 \uC5D0\uC774\uB4DC"
           Description: "\uB9DB\uC740 \uADF8\uB2E5 \uC774\uC9C0\uB9CC, \uBABD\uC2E4\uBABD\uC2E4\uD558\uACE0
             \uAE30\uD3EC\uAC00 \uC788\uB294 \uADC0\uC5EC\uC6B4 \uC0DD\uAE40\uC0C8\uB85C
@@ -44,6 +47,7 @@ MonoBehaviour:
       - Key: 10004
         Value:
           ID: 10004
+          Index: 3
           Name: "\uD669\uAE08\uC774\uB07C \uC5D0\uC774\uB4DC"
           Description: "\uC2DC\uB2E4! \uD558\uC9C0\uB9CC \uC5B4\uB450\uC6B4 \uACF3\uC5D0\uC11C
             \uC77C\uD558\uB294 \uC0AC\uB78C\uB4E4\uC774 \uC790\uC8FC \uC0AC\uAC04\uB2E4."
@@ -52,6 +56,7 @@ MonoBehaviour:
       - Key: 10005
         Value:
           ID: 10005
+          Index: 4
           Name: "\uC2E0\uAE40\uCE58 \uC5D0\uC774\uB4DC"
           Description: "\uC775\uC740 \uAE40\uCE58 \uB9DB\uC774 \uB09C\uB2E4. \uD65C\uD654\uC0B0\uC774\uB77C\uB294
             \uBCC4\uBA85\uC744 \uAC16\uACE0\uC788\uB294 \uC74C\uB8CC\uB2E4. \uC5B4\uB9AC\uACE0
@@ -61,6 +66,7 @@ MonoBehaviour:
       - Key: 10006
         Value:
           ID: 10006
+          Index: 5
           Name: "\uCCA0\uC57C \uC5D0\uC774\uB4DC"
           Description: "\uAC15\uD55C \uC2E0 \uB9DB\uC5D0 \uBC24\uC0D8 \uC791\uC5C5\uC744
             \uD558\uB294 \uC0AC\uB78C\uB4E4\uC774 \uB9CE\uC774 \uCC3E\uB294\uB2E4.
@@ -71,6 +77,7 @@ MonoBehaviour:
       - Key: 10007
         Value:
           ID: 10007
+          Index: 6
           Name: "\uB808\uBAA8\uB098"
           Description: "\uC2DC\uC911\uC5D0 \uD30C\uB294 \uBE44\uD0C0\uBBFCC \uC601\uC591\uC81C\uC640
             \uBE44\uC2B7\uD55C \uB9DB\uC774 \uB098\uC9C0\uB9CC \uD6E8\uC52C \uB2EC\uB2E4. "
@@ -79,6 +86,7 @@ MonoBehaviour:
       - Key: 10012
         Value:
           ID: 10012
+          Index: 7
           Name: "\uBC14\uB2E4\uCEE4\uD53C"
           Description: "\uC740\uC740\uD558\uAC8C \uC9E0\uB9DB\uC774 \uB3C4\uB294
             \uCE74\uD398\uC778 \uC74C\uB8CC\uB85C \uB2E8\uAC83\uACFC \uD568\uAED8
@@ -88,6 +96,7 @@ MonoBehaviour:
       - Key: 10013
         Value:
           ID: 10013
+          Index: 8
           Name: "\uC99D\uAE30 tea"
           Description: "\uC9E0\uB9DB\uC758 \uC99D\uAE30\uB97C \uC539\uC5B4\uBA39\uB294
             \uB290\uB08C\uC774 \uB098\uB294 \uC74C\uB8CC"
@@ -96,6 +105,7 @@ MonoBehaviour:
       - Key: 10014
         Value:
           ID: 10014
+          Index: 9
           Name: "\uC2A4\uD0C0\uC194\uD2B8"
           Description: "\uC18C\uAE08\uBB3C\uC774\uC9C0\uB9CC \uBC18\uC9DD\uAC70\uB824\uC11C
             \uC74C\uB8CC \uADF8\uB300\uB85C \uBCF4\uB2E4\uB294 \uC74C\uC2DD\uD560\uB54C
@@ -106,6 +116,7 @@ MonoBehaviour:
       - Key: 10015
         Value:
           ID: 10015
+          Index: 10
           Name: "\uD608\uAD00\uD655\uC7A5 \uC804\uBB38\uAC00"
           Description: "\uB9E4\uC6B0 \uC790\uADF9\uC801\uC778 \uB9DB\uC774\uB2E4.
             \uAC00\uB054 \uC778\uC0DD\uC774 \uC2EC\uC2EC\uD560\uB54C \uCC3E\uC544\uBA39\uC73C\uBA74
@@ -116,6 +127,7 @@ MonoBehaviour:
       - Key: 10016
         Value:
           ID: 10016
+          Index: 11
           Name: "\uC194\uD2F0\uBBFC\uD2B8"
           Description: "\uD55C\uBAA8\uAE08\uB9CC \uB9C8\uC154\uB3C4 \uC790\uB358
             \uC0AC\uB78C\uB9C8\uC800 \uB450 \uB208\uC744 \uBC88\uCA4D \uB728\uAC8C
@@ -126,6 +138,7 @@ MonoBehaviour:
       - Key: 10017
         Value:
           ID: 10017
+          Index: 12
           Name: "\uC194\uD2F0 \uCE74\uB77C\uBA5C"
           Description: "\uC194\uD2F0\uCE74\uB77C\uBA5C \uB9DB \uB514\uC800\uD2B8\uB97C
             \uC561\uCCB4\uB8CC \uBCC0\uD658\uC2DC\uD0A8\uB4EF\uD55C \uB9DB. \uBC14\uB2E4\uB77C\uB294\uAC83\uACFC
@@ -135,6 +148,7 @@ MonoBehaviour:
       - Key: 10023
         Value:
           ID: 10023
+          Index: 13
           Name: "\uCEE4\uD53C\uC5F0\uAE30"
           Description: "\uAC08\uC0C9\uC758 \uB369\uC5B4\uB9AC\uC9C4 \uC74C\uB8CC\uC758
             \uC0DD\uAE40\uC0C8 \uB355\uBD84\uC5D0 \uC798 \uC548\uD314\uB9B0\uB2E4.
@@ -144,6 +158,7 @@ MonoBehaviour:
       - Key: 10024
         Value:
           ID: 10024
+          Index: 14
           Name: "\uCE74\uD398\uC778 \uC740\uD558"
           Description: "\uBC18\uC9DD\uAC70\uB9AC\uB294 \uC0DD\uAE40\uC0C8\uC640 \uB2E4\uB974\uAC8C
             \uC5C4\uCCAD\uB098\uAC8C \uC4F4 \uB9DB \uB54C\uBB38\uC5D0 \uC18D\uB294
@@ -153,6 +168,7 @@ MonoBehaviour:
       - Key: 10025
         Value:
           ID: 10025
+          Index: 15
           Name: "\uC2E4\uD328\uC791"
           Description: "\uC2E4\uD328\uD55C \uC5F0\uAE08\uC220\uC758 \uBB34\uC5B8\uAC00\uCC98\uB7FC
             \uC0DD\uAE34 \uC74C\uB8CC\uB85C, \uB9DB\uB3C4 \uC2E4\uD328\uD55C\uB4EF\uD55C
@@ -163,6 +179,7 @@ MonoBehaviour:
       - Key: 10026
         Value:
           ID: 10026
+          Index: 16
           Name: "\uBBFC\uD2B8\uD37C\uD0A4"
           Description: "\uC624\uB798 \uBCF4\uAD00\uD560\uC218\uB85D \uB354\uC6B1
             \uC2DC\uC6D0\uD55C \uB9DB\uC774 \uB098\uB294 \uC74C\uB8CC. \uC815\uB9D0
@@ -174,6 +191,7 @@ MonoBehaviour:
       - Key: 10027
         Value:
           ID: 10027
+          Index: 17
           Name: "\uC0AC\uB808\uD2F0\uCE74\uB178"
           Description: "\uC2DC\uC911\uC5D0 \uD310\uB9E4\uD558\uB294 \uCE74\uD398\uC778
             \uC74C\uB8CC\uC5D0 \uC124\uD0D5\uC744 \uB123\uC740\uAC83\uACFC \uB611\uAC19\uC740
@@ -184,6 +202,7 @@ MonoBehaviour:
       - Key: 10034
         Value:
           ID: 10034
+          Index: 18
           Name: "\uCE58\uC988\uAD6C\uB984"
           Description: "\uCE58\uC988 \uC88B\uC544\uD558\uB294 \uC0AC\uB78C\uC774\uB77C\uBA74
             \uBC18\uB4DC\uC2DC \uC88B\uC544\uD560 \uC74C\uB8CC! \uAE30\uC220\uC774
@@ -195,6 +214,7 @@ MonoBehaviour:
       - Key: 10035
         Value:
           ID: 10035
+          Index: 19
           Name: "\uB3C4\uC804\uC6A9 \uC74C\uB8CC"
           Description: "\uCD94\uCC9C\uD558\uC9C0 \uC54A\uB294 \uC74C\uB8CC! \uAFB8\uB9B0\uB0B4\uC640
             \uB9E4\uC6B4\uB9DB\uC774 \uB2F9\uC2E0\uC744 \uC815\uB9D0 \uACE0\uD1B5\uC2A4\uB7FD\uAC8C
@@ -205,6 +225,7 @@ MonoBehaviour:
       - Key: 10036
         Value:
           ID: 10036
+          Index: 20
           Name: "\uB208\uB369\uC774"
           Description: "\uB208\uC774\uB77C\uACE0 \uBD80\uB974\uB294 \uCC28\uAC00\uC6B4
             \uB369\uC5B4\uB9AC\uB97C \uBA39\uB294 \uB290\uB08C\uC73C\uB85C \uB9E4\uC6B0
@@ -216,6 +237,7 @@ MonoBehaviour:
       - Key: 10037
         Value:
           ID: 10037
+          Index: 21
           Name: "\uC124\uD0D5\uBC84\uC12F"
           Description: "\uAD6C\uB9B0\uB0B4\uAC00 \uC904\uC5B4\uB4E0 \uB2E8 \uC74C\uB8CC\uC774\uB2E4.
             \uB9DB\uC788\uB2E4. \uD638\uBD88\uD638 \uAC08\uB9AC\uC9C0 \uC54A\uACE0
@@ -225,6 +247,7 @@ MonoBehaviour:
       - Key: 10045
         Value:
           ID: 10045
+          Index: 22
           Name: "\uACE0\uD1B5\uC758 \uC74C\uB8CC"
           Description: "\uB9E4\uC6B4 \uC74C\uB8CC! \uBAA9 \uC548\uC5D0\uC11C \uBC18\uC9DD\uAC70\uB9AC\uB294
             \uB9DB\uC774 \uB9E4\uC6B4\uB9DB\uACFC \uB9CC\uB098 \uB354 \uD070 \uACE0\uD1B5\uC73C\uB85C
@@ -235,6 +258,7 @@ MonoBehaviour:
       - Key: 10046
         Value:
           ID: 10046
+          Index: 23
           Name: "\uC2DC\uC6D0\uD55C \uB9DB\uC758 \uD615\uC0C1\uD654 "
           Description: "\uC544\uBB34\uB798\uB3C4 \uC2DC\uC6D0\uD55C \uB9DB\uC740
             \uC774\uB807\uAC8C \uC0DD\uACBC\uC744\uAC83\uC774\uB2E4. "
@@ -243,6 +267,7 @@ MonoBehaviour:
       - Key: 10047
         Value:
           ID: 10047
+          Index: 24
           Name: "\uC124\uD0D5 \uBB34\uB4DC\uB4F1"
           Description: "\uADF8\uB0E5 \uC124\uD0D5\uBB3C \uB9DB\uC774\uB2E4. \uBB34\uB4DC\uB4F1
             \uC6A9\uB3C4\uB85C \uB9CE\uC774 \uAD6C\uB9E4\uD558\uB294 \uB4EF \uD558\uB2E4."
@@ -251,6 +276,7 @@ MonoBehaviour:
       - Key: 10056
         Value:
           ID: 10056
+          Index: 25
           Name: "\uC2A4\uD30C\uC774\uC2DC \uBBFC\uD2B8"
           Description: "\uC74C\uB8CC\uC5D0 \uC0DD\uAE30\uB294 \uB369\uC5B4\uB9AC\uB9CC
             \uBA39\uACE0 \uC561\uCCB4\uB294 \uBC84\uB9B4\uAC83. \uC74C\uB8CC\uB294
@@ -262,6 +288,7 @@ MonoBehaviour:
       - Key: 10057
         Value:
           ID: 10057
+          Index: 26
           Name: "\uC124\uD0D5\uC6A9\uC554"
           Description: "\uB2E8 \uB9E4\uC6B4\uB9DB\uC774\uB2E4. \uADF8\uB0E5 \uB9DB\uC788\uB2E4."
           Ingredient1: 5
@@ -269,6 +296,7 @@ MonoBehaviour:
       - Key: 10067
         Value:
           ID: 10067
+          Index: 27
           Name: "\uC11D\uD68C \uB3D9\uAD74"
           Description: "\uBC15\uD558\uC0AC\uD0D5\uB9DB\uC774\uB2E4! \uC74C\uB8CC
             \uC704 \uC544\uB798\uB85C \uC885\uC720\uC11D\uACFC \uACB0\uC815\uC758
@@ -278,6 +306,7 @@ MonoBehaviour:
       - Key: 10088
         Value:
           ID: 10088
+          Index: 28
           Name: "\uC11D\uC720"
           Description: "\uAE30\uACC4\uB4E4\uC774\uB098 \uBA39\uB294 \uC11D\uC720\uB97C
             \uC778\uAC04\uC774 \uBA39\uC744 \uC218 \uC788\uAC8C \uAC1C\uB7C9\uD55C\uAC83.

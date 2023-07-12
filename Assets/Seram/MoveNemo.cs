@@ -5,46 +5,39 @@ using UnityEngine.UI;
 
 public class MoveNemo : MonoBehaviour
 {
-    public GameObject blackSquare;
-    public GameObject whiteSquare;
-    public Button moveButton;
-
-    private float blackY;
-    private float whiteY;
-    private float waiting;
+    [SerializeField] private float openY;
+    [SerializeField] private float closedY;
+    private float waiting = 0.7f;
+    private float speed = 0.3f;
     private Coroutine moveCoroutine;
 
-    public void Start()
+    private Vector3 movePos;
+
+    public void StartMovingBlackSquare(Vector3 pos)
     {
-        waiting = 2f;
-        blackY = blackSquare.transform.position.y;
-        whiteY = whiteSquare.transform.position.y;
+        if (moveCoroutine != null) return;
 
-        moveButton.onClick.AddListener(StartMovingBlackSquare);
-    }
-
-    private void StartMovingBlackSquare()
-    {
-        if (moveCoroutine != null)
-            StopCoroutine(moveCoroutine);
-
+        movePos = pos;
         moveCoroutine = StartCoroutine(MoveBlackSquareDown());
     }
 
     private IEnumerator MoveBlackSquareDown()
     {
-        while (blackSquare.transform.position.y > whiteY)
+        while (transform.position.y > closedY)
         {
-            blackSquare.transform.Translate(0, -1, 0);
+            transform.Translate(0, -speed, 0);
             yield return null;
         }
+
+        Camera.main.transform.position = movePos;
         yield return new WaitForSeconds(waiting);
 
-        while (blackY > blackSquare.transform.position.y)
+        while (openY > transform.position.y)
         {
-            blackSquare.transform.Translate(0, 1, 0);
+            transform.Translate(0, speed, 0);
             yield return null;
         }
-    }
 
+        moveCoroutine = null;
+    }
 }

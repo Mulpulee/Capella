@@ -24,4 +24,5 @@ MonoBehaviour:
   - Menu
   - OrderScript
   - IngredientTable
+  - SpecialDate
   DefaultSprite: {fileID: 0}

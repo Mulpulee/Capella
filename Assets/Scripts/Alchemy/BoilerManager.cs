@@ -9,6 +9,7 @@ public class BoilerManager : MonoBehaviour
     [SerializeField] private SpriteRenderer oil;
     [SerializeField] private GameObject product;
 
+    private GameManagerEx gm;
     private MouseManager mouse;
     private Inventory inventory;
 
@@ -20,6 +21,7 @@ public class BoilerManager : MonoBehaviour
 
     private void Start()
     {
+        gm = GameObject.FindObjectOfType<GameManagerEx>();
         mouse = GameObject.FindObjectOfType<MouseManager>();
         inventory = GameObject.FindObjectOfType<Inventory>();
 
@@ -79,6 +81,8 @@ public class BoilerManager : MonoBehaviour
         pp._isGas = false;
 
         p.GetComponent<SpriteRenderer>().sprite = pp._sprite;
+
+        gm.OpenRecipe(menu.Index);
 
         return;
     }

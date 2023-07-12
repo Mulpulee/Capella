@@ -19,7 +19,7 @@ public class TabManager : MonoBehaviour
     private GameObject ingredInfo;
     private GameObject recipe;
 
-    private Save data;
+    private GameManagerEx gm;
 
     private bool isClosed = true;
     private int showRecipe = -1;
@@ -28,14 +28,14 @@ public class TabManager : MonoBehaviour
 
     private void Start()
     {
+        gm = GameObject.FindObjectOfType<GameManagerEx>();
+
         tabs = new GameObject[3];
         for (int i = 0; i < 3; i++) tabs[i] = transform.GetChild(i).gameObject;
         for (int i = 1; i < 3; i++) tabs[i].SetActive(false);
 
         ingredInfo = transform.GetChild(3).gameObject; ingredInfo.SetActive(false);
         recipe = transform.GetChild(4).gameObject; recipe.SetActive(false);
-
-        data = GameObject.FindObjectOfType<Save>();
 
         page = 0;
         
@@ -78,18 +78,18 @@ public class TabManager : MonoBehaviour
 
     private void SetRecipeOpen()
     {
-        data.LoadPlayerDataFromJson();
+        int[] recipe = gm.GetOpendedRecipe();
 
         if (page == 1)
         {
             for (int i = 1; i <= 16; i++)
-                if (data.playerData.recipe[i - 1] == 1)
+                if (recipe[i - 1] == 1)
                     tabs[1].transform.GetChild(i).GetChild(0).GetComponent<Image>().color = Color.white;
         }
         else
         {
             for (int i = 17; i <= 29; i++)
-                if (data.playerData.recipe[i - 1] == 1)
+                if (recipe[i - 1] == 1)
                     tabs[2].transform.GetChild(i - 16).GetChild(0).GetComponent<Image>().color = Color.white;
         }
     }
@@ -138,7 +138,7 @@ public class TabManager : MonoBehaviour
         recipe.transform.GetChild(3).GetComponent<Text>().text = menuTable.Name;
         recipe.transform.GetChild(4).GetComponent<Text>().text = menuTable.Description;
 
-        if (data.playerData.recipe[index] == 0)
+        if (gm.GetOpendedRecipe()[index] == 0)
         {
             recipe.transform.GetChild(0).gameObject.SetActive(true);
             return;
@@ -182,6 +182,11 @@ public class TabManager : MonoBehaviour
             isClosed = true;
             StartCoroutine(MoveCoroutine(closePos, 50f));
         }
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.R)) OnMouseDown();
     }
 
     private IEnumerator MoveCoroutine(Vector3 pos, float duration)

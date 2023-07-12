@@ -18,5 +18,7 @@ namespace Automation.DataTable {
         public const string OrderScript = "OrderScript";
         
         public const string IngredientTable = "IngredientTable";
+        
+        public const string SpecialDate = "SpecialDate";
     }
 }
