@@ -1,35 +1,54 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class TextDelay : MonoBehaviour
 {
-    private string text;
-    public TMP_Text targetText;
+    [SerializeField] private string[] text;
+    public Text targetText;
     private float delay = 0.125f;
+    private bool isTyping;
+    private int index = 0;
 
-    void Start()
+    private void Start()
     {
-        text = targetText.text.ToString();
-        targetText.text = " ";
-
-        StartCoroutine(textPrint(delay));
+        StartCoroutine(TextPrint(delay));
     }
 
-    IEnumerator textPrint(float delay)
+    private void Update()
     {
-        int count = 0;
-
-        while (count != text.Length)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (count < text.Length)
+            if (isTyping)
             {
-                targetText.text += text[count].ToString();
-                count++;
+                StopCoroutine(TextPrint(delay));
+                targetText.text = text[index];
+                isTyping = false;
             }
+            else
+            {
+                if (index < text.Length - 1)
+                {
+                    index++;
+                    StartCoroutine(TextPrint(delay));
+                }
+            }
+        }
+    }
 
+    IEnumerator TextPrint(float delay)
+    {
+        isTyping = true;
+        targetText.text = "";
+
+        for (int count = 0; count < text[index].Length; count++)
+        {
+            if(!isTyping) {  break; }
+            targetText.text += text[index][count].ToString();
             yield return new WaitForSeconds(delay);
         }
+
+        isTyping = false;
     }
 }
