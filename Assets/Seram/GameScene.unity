@@ -848,7 +848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16da02406b07d424fa4dac6418224031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BlackScreen1: {fileID: 429236357}
+  BlackScreen: {fileID: 429236357}
 --- !u!1 &1981225862
 GameObject:
   m_ObjectHideFlags: 0
