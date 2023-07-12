@@ -187,7 +187,8 @@ public class TabManager : MonoBehaviour
     private IEnumerator MoveCoroutine(Vector3 pos, float duration)
     {
         float dir = (pos.y - transform.localPosition.y) / duration;
-        while ((dir > 0 && transform.localPosition.y <= pos.y) || (dir < 0 && transform.localPosition.y >= pos.y))
+        while ((dir > 0 && transform.localPosition.y <= pos.y)
+            || (dir < 0 && transform.localPosition.y >= pos.y))
         {
             transform.localPosition += new Vector3(0, dir, 0);
             yield return null;
