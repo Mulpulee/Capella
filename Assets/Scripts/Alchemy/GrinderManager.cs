@@ -14,8 +14,11 @@ public class GrinderManager : MonoBehaviour
     private int grindGrade;
     private bool left;
 
+    private SoundManagerEx sm;
+
     private void Start()
     {
+        sm = GameObject.FindObjectOfType<SoundManagerEx>();
         mouse = GameObject.FindObjectOfType<MouseManager>();
         ResetGrinder();
     }
@@ -30,6 +33,7 @@ public class GrinderManager : MonoBehaviour
 
     private void Grind()
     {
+        if(grindGrade == 0) sm.OnSfx(0);
         grindGrade++;
         left = !left;
 

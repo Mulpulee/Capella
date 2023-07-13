@@ -15,6 +15,7 @@ public class CustomerManager : MonoBehaviour
     private Text[] texts = new Text[2];
 
     private GameManagerEx gm;
+    private SoundManagerEx sm;
     private MouseManager mouse;
     private Inventory inven;
     private TextDelay textprinter;
@@ -31,6 +32,7 @@ public class CustomerManager : MonoBehaviour
     private void Start()
     {
         gm = GameObject.FindObjectOfType<GameManagerEx>();
+        sm = GameObject.FindObjectOfType<SoundManagerEx>();
         mouse = GameObject.FindObjectOfType<MouseManager>();
         inven = GameObject.FindObjectOfType<Inventory>();
         textprinter = GetComponent<TextDelay>();
@@ -80,6 +82,7 @@ public class CustomerManager : MonoBehaviour
         ordered._description = orderMenu.Description;
         ordered._isGas = Random.Range(1, 10) <= 5 ? true : false;
 
+        sm.OnSfx(3);
         StartCoroutine(MoveCoroutine(cs.transform, new Vector3(19, 0.3f), 120f));
 
         yield return new WaitForSeconds(0.8f);
@@ -113,6 +116,7 @@ public class CustomerManager : MonoBehaviour
 
         if (holding._name == ordered._name && holding._isGas == ordered._isGas) Correct();
         else Wrong();
+        sm.OnSfx(2);
 
         inven.UseSlot();
     }
@@ -171,6 +175,7 @@ public class CustomerManager : MonoBehaviour
             else
             {
                 gm.ChangeTime(false);
+                sm.OnSfx(9);
                 StartCoroutine(MoveCoroutine(closebutton.transform, new Vector3(19, 3.3f), 200f, false));
             }
         }

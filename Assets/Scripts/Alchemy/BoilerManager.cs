@@ -10,6 +10,7 @@ public class BoilerManager : MonoBehaviour
     [SerializeField] private GameObject product;
 
     private GameManagerEx gm;
+    private SoundManagerEx sm;
     private MouseManager mouse;
     private Inventory inventory;
 
@@ -22,6 +23,7 @@ public class BoilerManager : MonoBehaviour
     private void Start()
     {
         gm = GameObject.FindObjectOfType<GameManagerEx>();
+        sm = GameObject.FindObjectOfType<SoundManagerEx>();
         mouse = GameObject.FindObjectOfType<MouseManager>();
         inventory = GameObject.FindObjectOfType<Inventory>();
 
@@ -58,6 +60,7 @@ public class BoilerManager : MonoBehaviour
     private void Drip()
     {
         mouse.RemoveHolding();
+        sm.OnSfx(1);
 
         MenuRow menu;
         if (stackCount == 0)
@@ -106,6 +109,7 @@ public class BoilerManager : MonoBehaviour
             {
                 if (info._type == IngredType.etc)
                 {
+                    sm.OnSfx(6);
                     p.GetComponent<Product>()._sprite = gasSprites[powderCode.ToString()];
                     inventory.SetSlot(p.GetComponent<Product>(), true);
                     Destroy(p);

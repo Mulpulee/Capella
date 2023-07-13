@@ -20,6 +20,7 @@ public class TabManager : MonoBehaviour
     private GameObject recipe;
 
     private GameManagerEx gm;
+    private SoundManagerEx sm;
 
     private bool isClosed = true;
     private int showRecipe = -1;
@@ -29,6 +30,7 @@ public class TabManager : MonoBehaviour
     private void Start()
     {
         gm = GameObject.FindObjectOfType<GameManagerEx>();
+        sm = GameObject.FindObjectOfType<SoundManagerEx>();
 
         tabs = new GameObject[3];
         for (int i = 0; i < 3; i++) tabs[i] = transform.GetChild(i).gameObject;
@@ -64,6 +66,7 @@ public class TabManager : MonoBehaviour
             return;
         }
 
+        sm.OnSfx(9);
         if (next) page++;
         else page--;
 
@@ -172,10 +175,11 @@ public class TabManager : MonoBehaviour
 
     private void OnMouseDown()
     {
+        sm.OnSfx(11);
         if(isClosed)
         {
             isClosed = false;
-            SetRecipeOpen();
+            if (page != 0) SetRecipeOpen();
             StartCoroutine(MoveCoroutine(openPos, 50f));
         }
         else

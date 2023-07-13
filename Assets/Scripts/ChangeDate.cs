@@ -9,6 +9,13 @@ public class ChangeDate : MonoBehaviour
     [SerializeField] private Text prev;
     [SerializeField] private Text next;
 
+    private SoundManagerEx sm;
+
+    private void Start()
+    {
+        sm = GameObject.FindObjectOfType<SoundManagerEx>();
+    }
+
     public IEnumerator ChangeAnim(Action callback)
     {
         int day = GameObject.FindObjectOfType<GameManagerEx>().GetDay();
@@ -17,6 +24,7 @@ public class ChangeDate : MonoBehaviour
 
         yield return new WaitForSeconds(5f);
 
+        sm.OnSfx(10);
         StartCoroutine(MoveCoroutine(transform, new Vector3(-167, 70), 300f));
 
         yield return new WaitForSeconds(5f);

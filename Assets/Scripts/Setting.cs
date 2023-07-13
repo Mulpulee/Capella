@@ -31,18 +31,21 @@ public class Setting : MonoBehaviour
 
     public void Back()
     {
+        sm.OnSfx(11);
         gm.isSetting = false;
         Destroy(gameObject);
     }
 
     public void Title()
     {
+        sm.OnSfx(11);
         gm.isSetting = false;
         gm.GotoTitle();
     }
 
     public void Exit()
     {
+        sm.OnSfx(11);
         Application.Quit();
     }
 
@@ -50,6 +53,7 @@ public class Setting : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            sm.OnSfx(11);
             Back();
         }
     }

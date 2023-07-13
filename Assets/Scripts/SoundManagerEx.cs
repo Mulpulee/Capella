@@ -8,7 +8,7 @@ public class SoundManagerEx : MonoBehaviour
 {
     [SerializeField] private AudioClip[] BGMs;
     [SerializeField] private AudioClip[] SFXs;
-    [SerializeField] private AudioSource BGMsource;
+    [SerializeField] public AudioSource BGMsource;
 
     private GameManagerEx gm;
 
@@ -57,6 +57,11 @@ public class SoundManagerEx : MonoBehaviour
         BGMsource.Play();
     }
 
+    public void StopBgm()
+    {
+        BGMsource.Stop();
+    }
+
     public void OnSfx(int index)
     {
         StartCoroutine(PlaySfx(index));
@@ -70,6 +75,8 @@ public class SoundManagerEx : MonoBehaviour
         source.Play();
 
         while (source.isPlaying) yield return null;
+
+        yield return new WaitForSeconds(1);
 
         Destroy(source);
     }

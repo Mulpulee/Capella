@@ -15,6 +15,7 @@ public class Inventory : MonoBehaviour
     private Product[] products;
 
     private MouseManager mouse;
+    private SoundManagerEx sm;
     private BoxCollider2D col;
 
     private bool isClosed = true;
@@ -22,6 +23,7 @@ public class Inventory : MonoBehaviour
     private void Start()
     {
         mouse = GameObject.FindObjectOfType<MouseManager>();
+        sm = GameObject.FindObjectOfType<SoundManagerEx>();
         col = GetComponent<BoxCollider2D>(); SetCollider(true);
 
         slots = new GameObject[3];
@@ -47,6 +49,7 @@ public class Inventory : MonoBehaviour
     {
         if (GetEmptySlot() == -1) return;
 
+        sm.OnSfx(7);
         int emptySlot = GetEmptySlot();
 
         SpriteRenderer drink;
@@ -126,6 +129,7 @@ public class Inventory : MonoBehaviour
     {
         if(mouse.GetHoldingObject() == null)
         {
+            sm.OnSfx(11);
             if (isClosed)
             {
                 isClosed = false;
@@ -157,6 +161,7 @@ public class Inventory : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
+            sm.OnSfx(11);
             if (isClosed)
             {
                 isClosed = false;

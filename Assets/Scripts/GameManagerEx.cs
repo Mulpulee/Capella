@@ -29,6 +29,9 @@ public class GameManagerEx : MonoBehaviour
 
     private SoundManagerEx sm;
 
+    private Coroutine playBgm;
+    private int bgmIndex;
+
     private void Awake()
     {
         DontDestroyOnLoad(this);
@@ -36,18 +39,6 @@ public class GameManagerEx : MonoBehaviour
         screen = "Title";
 
         data = GetComponent<Save>();
-        if (data.playerData == null)
-        {
-            data.playerData = new Playerdata();
-            data.playerData.recipe = new int[29];
-            data.playerData.customer = new int[5];
-            data.playerData.day = 1;
-            data.playerData.mstVolume = 1.0f;
-            data.playerData.bgmVolume = 1.0f;
-            data.playerData.sfxVolume = 1.0f;
-
-            data.SavePlayerDataToJson();
-        }
         LoadData();
         if (data.playerData.day == 0) data.playerData.day = 1;
         
@@ -66,7 +57,6 @@ public class GameManagerEx : MonoBehaviour
     {
         playerdata = new Playerdata();
         playerdata.day = 1;
-        SaveData();
         scene.ChangeScene("CounterScene", () => { }, () => { });
         InGameScene();
     }
@@ -79,6 +69,8 @@ public class GameManagerEx : MonoBehaviour
 
     private void InGameScene()
     {
+        bgmIndex = 1;
+        playBgm = StartCoroutine(PlayBgm());
         LoadData();
 
         specialDate = new List<int>[5];
@@ -151,6 +143,27 @@ public class GameManagerEx : MonoBehaviour
         return script[id];
     }
 
+    private IEnumerator PlayBgm()
+    {
+        if (isDay) sm.PlayBgm(bgmIndex);
+        else sm.PlayBgm(4);
+
+        while (sm.BGMsource.isPlaying) yield return null;
+
+        if(isDay)
+        {
+            bgmIndex++;
+            if (bgmIndex == 4) bgmIndex = 0;
+        }
+        else
+        {
+            bgmIndex++;
+            if (bgmIndex == 8) bgmIndex = 4;
+        }
+
+        playBgm = StartCoroutine(PlayBgm());
+    }
+
     public void ChangeTime(bool day)
     {
         isDay = day;
@@ -173,6 +186,7 @@ public class GameManagerEx : MonoBehaviour
 
     public int[] GetOpendedRecipe()
     {
+        LoadData();
         return playerdata.recipe;
     }
 
@@ -236,6 +250,8 @@ public class GameManagerEx : MonoBehaviour
     public void GotoTitle()
     {
         screen = "Title";
+        StopCoroutine(playBgm);
+        sm.PlayBgm(0);
         SceneManager.LoadScene("TitleScene");
     }
 
