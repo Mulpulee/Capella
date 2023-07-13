@@ -502,7 +502,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4853214656c47c7438de6edf8712a8ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  command: NewGame
+  command: Exit
 --- !u!1 &713438337
 GameObject:
   m_ObjectHideFlags: 0
@@ -638,7 +638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4853214656c47c7438de6edf8712a8ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  command: NewGame
+  command: ContinueGame
 --- !u!1 &1157209310
 GameObject:
   m_ObjectHideFlags: 0

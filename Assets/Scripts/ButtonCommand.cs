@@ -14,5 +14,7 @@ public class ButtonCommand : MonoBehaviour
         gm = GameObject.FindObjectOfType<GameManagerEx>();
 
         GetComponent<Button>().onClick.AddListener(() => gm.ButtonTrigger(command));
+        if(command == "Reset")
+            GetComponent<Button>().onClick.AddListener(() => Destroy(transform.parent.gameObject));
     }
 }

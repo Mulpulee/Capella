@@ -8,8 +8,10 @@ using UnityEngine.SceneManagement;
 
 public class GameManagerEx : MonoBehaviour
 {
-    [SerializeField] Vector3 counterPos;
-    [SerializeField] Vector3 alchemyPos;
+    [SerializeField] private Vector3 counterPos;
+    [SerializeField] private Vector3 alchemyPos;
+    [SerializeField] private GameObject setting;
+    [SerializeField] private GameObject warning;
 
     private Save data;
     private MoveNemo fade;
@@ -23,6 +25,9 @@ public class GameManagerEx : MonoBehaviour
     private string screen;
 
     private bool isDay = true;
+    public bool isSetting = false;
+
+    private SoundManagerEx sm;
 
     private void Awake()
     {
@@ -37,16 +42,36 @@ public class GameManagerEx : MonoBehaviour
             data.playerData.recipe = new int[29];
             data.playerData.customer = new int[5];
             data.playerData.day = 1;
+            data.playerData.mstVolume = 1.0f;
+            data.playerData.bgmVolume = 1.0f;
+            data.playerData.sfxVolume = 1.0f;
 
-            SaveData();
+            data.SavePlayerDataToJson();
         }
         LoadData();
+        if (data.playerData.day == 0) data.playerData.day = 1;
+        
         scene = GetComponent<SceneMove>();
+        sm = GameObject.FindObjectOfType<SoundManagerEx>();
+    }
 
+    private void Start()
+    {
         SceneManager.LoadScene("TitleScene");
+        sm.SetAll(playerdata.mstVolume, playerdata.bgmVolume, playerdata.sfxVolume);
+        sm.PlayBgm(0);
     }
 
     public void NewGame()
+    {
+        playerdata = new Playerdata();
+        playerdata.day = 1;
+        SaveData();
+        scene.ChangeScene("CounterScene", () => { }, () => { });
+        InGameScene();
+    }
+
+    public void ContinueGame()
     {
         scene.ChangeScene("CounterScene", () => { }, () => { });
         InGameScene();
@@ -97,6 +122,20 @@ public class GameManagerEx : MonoBehaviour
         data.SavePlayerDataToJson();
     }
 
+    public Playerdata GetData()
+    {
+        return playerdata;
+    }
+
+    public void SetVolumes(float mst, float bgm, float sfx)
+    {
+        playerdata.mstVolume = mst;
+        playerdata.bgmVolume = bgm;
+        playerdata.sfxVolume = sfx;
+
+        SaveData();
+    }
+    
     public List<int>[] GetSpecialDate()
     {
         return specialDate;
@@ -178,8 +217,26 @@ public class GameManagerEx : MonoBehaviour
     {
         if(command == "NewGame")
         {
+            Instantiate(warning);
+        }
+        if(command == "Reset")
+        {
             NewGame();
         }
+        if(command == "ContinueGame")
+        {
+            ContinueGame();
+        }
+        if(command == "Exit")
+        {
+            Application.Quit();
+        }
+    }
+
+    public void GotoTitle()
+    {
+        screen = "Title";
+        SceneManager.LoadScene("TitleScene");
     }
 
     private void Update()
@@ -198,6 +255,11 @@ public class GameManagerEx : MonoBehaviour
                 fade.StartMovingBlackSquare(counterPos);
                 screen = "Counter";
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!isSetting) Instantiate(setting);
         }
     }
 }
