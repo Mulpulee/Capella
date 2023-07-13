@@ -112,13 +112,13 @@ public class Inventory : MonoBehaviour
     {
         if(handle)
         {
-            col.offset = new Vector2(0, 1.867245f);
-            col.size = new Vector2(6.578125f, 1.034701f);
+            col.offset = new Vector2(0.2f, 1.6f);
+            col.size = new Vector2(6.5f, 1f);
         }
         else
         {
-            col.offset = Vector2.zero;
-            col.size = new Vector2(6.578125f, 2.78125f);
+            col.offset = new Vector2(0.2f, -0.4f);
+            col.size = new Vector2(9f, 3f);
         }
     }
 

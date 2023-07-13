@@ -11,7 +11,7 @@ public class Save : MonoBehaviour
     [ContextMenu("To Json Data")]
     public void SavePlayerDataToJson()
     {
-        string jsonData = JsonUtility.ToJson(playerData,true);
+        string jsonData = JsonUtility.ToJson(playerData, true);
         string path = Path.Combine(Application.dataPath, "PlayerData.json");
         File.WriteAllText(path, jsonData);
     }
@@ -19,8 +19,11 @@ public class Save : MonoBehaviour
     public void LoadPlayerDataFromJson()
     {
         string path = Path.Combine(Application.dataPath, "playerData.json");
+
+        if(!File.Exists(path)) SavePlayerDataToJson();
+
         string jsonData = File.ReadAllText(path);
-        playerData=JsonUtility.FromJson<Playerdata>(jsonData);
+        playerData = JsonUtility.FromJson<Playerdata>(jsonData);
     }
 }
 [System.Serializable]

@@ -9,6 +9,7 @@ public class CustomerManager : MonoBehaviour
 {
     [SerializeField] private GameObject[] MobCustomer;
     [SerializeField] private GameObject[] SpecialCustomer;
+    [SerializeField] private GameObject closebutton;
 
     private GameObject canvas;
     private Text[] texts = new Text[2];
@@ -35,6 +36,9 @@ public class CustomerManager : MonoBehaviour
         textprinter = GetComponent<TextDelay>();
         specialDates = gm.GetSpecialDate();
 
+        csmCount = Random.Range(10, 15);
+        csmCount = 2;
+
         special = GetSpecialDate(gm.GetDay());
         if(special == -1)
             StartCoroutine(CustomerOrder(5, MobCustomer[Random.Range(0, MobCustomer.Length)]));
@@ -48,8 +52,6 @@ public class CustomerManager : MonoBehaviour
         texts[1] = canvas.transform.GetChild(2).GetComponent<Text>();
 
         canvas.SetActive(false);
-
-        csmCount = Random.Range(10, 15);
     }
 
     private int GetSpecialDate(int day)
@@ -96,7 +98,8 @@ public class CustomerManager : MonoBehaviour
         }
 
         string orderMent = orderScript.OrderScript_front + orderMenu.Name
-            + (ordered._isGas ? " 기체" : orderMenu.Eu ? "으" : "") + orderScript.OrderScript_back;
+            + (ordered._isGas ? " 기체" : (orderMenu.Eu == 1 ? (id == 0 ? "" : "으") : ""))
+            + orderScript.OrderScript_back;
 
         PrintMent(ment, orderMent);
 
@@ -139,10 +142,11 @@ public class CustomerManager : MonoBehaviour
 
     public void EndDialog()
     {
+        canvas.SetActive(false);
+
         if (!isServed) return;
 
         isServed = false;
-        canvas.SetActive(false);
 
         StartCoroutine(MoveCoroutine(cs.transform, new Vector3(19, -10f), 120f, true));                               
     }
@@ -162,10 +166,20 @@ public class CustomerManager : MonoBehaviour
         if (delete)
         {
             Destroy(_transform.gameObject);
-            if (csmCount-- > 0)
+            if (--csmCount > 0)
                 StartCoroutine(CustomerOrder(5, MobCustomer[Random.Range(0, MobCustomer.Length)]));
+            else
+            {
+                gm.ChangeTime(false);
+                StartCoroutine(MoveCoroutine(closebutton.transform, new Vector3(19, 3.3f), 200f, false));
+            }
         }
 
         yield return null;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.End)) Correct();
     }
 }

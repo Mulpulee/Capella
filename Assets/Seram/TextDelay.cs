@@ -13,6 +13,11 @@ public class TextDelay : MonoBehaviour
 
     private CustomerManager cm;
 
+    private void Start()
+    {
+        cm = GetComponent<CustomerManager>();
+    }
+
     public void SetTexts(string[] _text)
     {
         text = _text;

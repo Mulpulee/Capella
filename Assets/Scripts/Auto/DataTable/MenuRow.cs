@@ -24,6 +24,6 @@ namespace Automation.DataTable {
         
         public int Ingredient2;
         
-        public bool Eu;
+        public int Eu;
     }
 }

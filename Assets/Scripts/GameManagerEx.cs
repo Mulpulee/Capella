@@ -1,8 +1,10 @@
 using Automation.DataTable;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManagerEx : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class GameManagerEx : MonoBehaviour
 
     private Save data;
     private MoveNemo fade;
+    private SceneMove scene;
 
     private List<int>[] specialDate;
     private List<OrderScriptRow> script;
@@ -19,11 +22,39 @@ public class GameManagerEx : MonoBehaviour
     private Playerdata playerdata;
     private string screen;
 
+    private bool isDay = true;
+
     private void Awake()
     {
-        data = GameObject.FindObjectOfType<Save>();
+        DontDestroyOnLoad(this);
+
+        screen = "Title";
+
+        data = GetComponent<Save>();
+        if (data.playerData == null)
+        {
+            data.playerData = new Playerdata();
+            data.playerData.recipe = new int[29];
+            data.playerData.customer = new int[5];
+            data.playerData.day = 1;
+
+            SaveData();
+        }
         LoadData();
-        fade = GameObject.FindObjectOfType<MoveNemo>();
+        scene = GetComponent<SceneMove>();
+
+        SceneManager.LoadScene("TitleScene");
+    }
+
+    public void NewGame()
+    {
+        scene.ChangeScene("CounterScene", () => { }, () => { });
+        InGameScene();
+    }
+
+    private void InGameScene()
+    {
+        LoadData();
 
         specialDate = new List<int>[5];
         SpecialDateRow table;
@@ -45,7 +76,7 @@ public class GameManagerEx : MonoBehaviour
             specialDate[i] = date;
         }
 
-        script =  DataTableLoader.GetTable<OrderScriptRow>().ToList<OrderScriptRow>();
+        script = DataTableLoader.GetTable<OrderScriptRow>().ToList<OrderScriptRow>();
         script.RemoveAt(0);
         script.Add(DataSystem<OrderScriptRow>.GetRow(20001));
 
@@ -81,6 +112,11 @@ public class GameManagerEx : MonoBehaviour
         return script[id];
     }
 
+    public void ChangeTime(bool day)
+    {
+        isDay = day;
+    }
+
     public void AddMoney(int amount)
     {
         playerdata.money += amount;
@@ -101,17 +137,64 @@ public class GameManagerEx : MonoBehaviour
         return playerdata.recipe;
     }
 
+    public void CloseCafe()
+    {
+        playerdata.day++;
+        isDay = true;
+
+        SaveData();
+
+        StartCoroutine(CloseCafeRoutine());
+    }
+
+    public void InResult()
+    {
+
+    }
+
+    public IEnumerator CloseCafeRoutine()
+    {
+        bool isEnd = false;
+
+        scene.ChangeScene("ResultScene", () => { }, () => isEnd = true);
+
+        while (!isEnd) yield return null;
+        isEnd = false;
+
+        StartCoroutine(GameObject.FindObjectOfType<ChangeDate>().ChangeAnim(() => isEnd = true));
+
+        while (!isEnd) yield return null;
+        isEnd = false;
+
+        scene.ChangeScene("CounterScene", () => { }, () => isEnd = true);
+
+        while (!isEnd) yield return null;
+        isEnd = false;
+
+        InGameScene();
+    }
+
+    public void ButtonTrigger(string command)
+    {
+        if(command == "NewGame")
+        {
+            NewGame();
+        }
+    }
+
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.W))
         {
             if (screen == "Counter")
             {
+                fade = GameObject.FindObjectOfType<MoveNemo>();
                 fade.StartMovingBlackSquare(alchemyPos);
                 screen = "Alchemy";
             }
             else if (screen == "Alchemy")
             {
+                fade = GameObject.FindObjectOfType<MoveNemo>();
                 fade.StartMovingBlackSquare(counterPos);
                 screen = "Counter";
             }

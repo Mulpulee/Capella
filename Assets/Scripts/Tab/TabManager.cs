@@ -175,6 +175,7 @@ public class TabManager : MonoBehaviour
         if(isClosed)
         {
             isClosed = false;
+            SetRecipeOpen();
             StartCoroutine(MoveCoroutine(openPos, 50f));
         }
         else

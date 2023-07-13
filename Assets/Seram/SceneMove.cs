@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,29 +7,45 @@ using UnityEngine.UI;
 
 public class SceneMove : MonoBehaviour
 {
-    [SerializeField] 
+    [SerializeField] private GameObject nemo;
+    private string nextScene;
 
-    public Image BlackScreen;
     private float alpha = 0;
 
-    private IEnumerator ScreenChange()
+    public void ChangeScene(string _scene, Action callback, Action changedCallback)
     {
-        while (BlackScreen.color.a < 1)
+        nextScene = _scene;
+        StartCoroutine(ScreenChange(callback, changedCallback));
+    }
+
+    private IEnumerator ScreenChange(Action callback, Action changedCallback)
+    {
+        SpriteRenderer screen = Instantiate(nemo).GetComponent<SpriteRenderer>();
+        while (screen.color.a < 1)
         {
-            BlackScreen.color = new Color(0, 0, 0, alpha);
+            screen.color = new Color(0, 0, 0, alpha);
             yield return new WaitForFixedUpdate();
 
             alpha += 0.01f;
         }
+
+        AsyncOperation operation = SceneManager.LoadSceneAsync(nextScene);
+
+        while (!operation.isDone) yield return null;
+        changedCallback.Invoke();
+
+        screen = Instantiate(nemo).GetComponent<SpriteRenderer>();
+        screen.color = Color.black;
         yield return new WaitForSeconds(2.0f);
 
-        SceneManager.LoadScene("MoveScene");
-    }
-    public void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {            
-            StartCoroutine(ScreenChange());
+        while (screen.color.a > 0)
+        {
+            screen.color = new Color(0, 0, 0, alpha);
+            yield return new WaitForFixedUpdate();
+
+            alpha -= 0.01f;
         }
+
+        callback.Invoke();
     }
 }   
